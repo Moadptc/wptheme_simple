@@ -7,9 +7,7 @@
 
 				<article class="post">
 					<h3>
-						<a href="<?php the_permalink() ?>">
-							<?php the_title() ?>
-						</a>
+						<?php the_title() ?>
 					</h3>
 					<div class="meta">
 						Created By : <?php the_author() ?> On :
@@ -22,11 +20,8 @@
 						</div>
 					<?php endif; ?>
 
-					<?php the_excerpt() ?>
-					<br>
-					<a href="<?php the_permalink() ?>" class="button">
-						Read More
-					</a>
+					<?php the_content() ?>
+
 				</article>
 
 			<?php endwhile; ?>
