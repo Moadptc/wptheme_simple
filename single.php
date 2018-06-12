@@ -1,34 +1,50 @@
 <?php get_header() ?>
 
-<div class="main">
-	<div class="container">
+<div class="container">
+
+    <div class="main">
+
 		<?php if(have_posts()): ?>
 			<?php while (have_posts()): the_post(); ?>
 
-				<article class="post">
-					<h3>
+                <article class="post">
+                    <h3>
 						<?php the_title() ?>
-					</h3>
-					<div class="meta">
-						Created By : <?php the_author() ?> On :
+                    </h3>
+                    <div class="meta">
+                        Created By : <?php the_author() ?> On :
 						<?php the_time('F j, Y g:i a') ?>
-					</div>
+                    </div>
 
 					<?php if(has_post_thumbnail()): ?>
-						<div class="post-thumbnail">
+                        <div class="post-thumbnail">
 							<?php the_post_thumbnail() ?>
-						</div>
+                        </div>
 					<?php endif; ?>
 
 					<?php the_content() ?>
 
-				</article>
+                </article>
 
 			<?php endwhile; ?>
 		<?php else: ?>
 			<?php echo wpautop('Sorry no posts were found') ?>
 		<?php endif; ?>
-	</div>
+
+        <div class="comments">
+		    <?php comments_template(); ?>
+        </div>
+
+    </div>
+
+    <div class="sidebar">
+		<?php if(is_active_sidebar('sidebar')): ?>
+			<?php dynamic_sidebar('sidebar') ?>
+		<?php endif; ?>
+    </div>
+
+    <div class="clearfix"></div>
+
 </div>
 
 <?php get_footer() ?>

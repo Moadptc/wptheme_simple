@@ -1,39 +1,53 @@
 <?php get_header() ?>
 
-<div class="main">
-	<div class="container">
+<div class="container">
+    <div class="main">
+
 		<?php if(have_posts()): ?>
 			<?php while (have_posts()): the_post(); ?>
 
-				<article class="post">
-					<h3>
-						<a href="<?php the_permalink() ?>">
+                <article class="post">
+                    <h3>
+                        <a href="<?php the_permalink() ?>">
 							<?php the_title() ?>
-						</a>
-					</h3>
-					<div class="meta">
-						Created By : <?php the_author() ?> On :
+                        </a>
+                    </h3>
+                    <div class="meta">
+                        Created By :
+                        <a href="<?php get_author_posts_url(get_the_author_meta('ID')) ?>">
+	                        <?php the_author() ?>
+                        </a>
+                        On :
 						<?php the_time('F j, Y g:i a') ?>
-					</div>
+                    </div>
 
 					<?php if(has_post_thumbnail()): ?>
-						<div class="post-thumbnail">
+                        <div class="post-thumbnail">
 							<?php the_post_thumbnail() ?>
-						</div>
+                        </div>
 					<?php endif; ?>
 
 					<?php the_excerpt() ?>
-					<br>
-					<a href="<?php the_permalink() ?>" class="button">
-						Read More
-					</a>
-				</article>
+                    <br>
+                    <a href="<?php the_permalink() ?>" class="button">
+                        Read More
+                    </a>
+                </article>
 
 			<?php endwhile; ?>
 		<?php else: ?>
 			<?php echo wpautop('Sorry no posts were found') ?>
 		<?php endif; ?>
-	</div>
+    </div>
+
+    <div class="sidebar">
+        <?php if(is_active_sidebar('sidebar')): ?>
+	        <?php dynamic_sidebar('sidebar') ?>
+        <?php endif; ?>
+    </div>
+
+    <div class="clearfix"></div>
+
 </div>
 
 <?php get_footer() ?>

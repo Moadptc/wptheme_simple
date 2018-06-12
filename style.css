@@ -40,6 +40,8 @@ header h1{
 
 .main{
     margin:15px 0;
+    float: left;
+    width: 68%;
 }
 
 footer{
@@ -97,4 +99,43 @@ article.post a.button{
 .main-nav a{
     color:#fff;
     text-decoration: none;
+}
+
+.sidebar
+{
+    width: 28%;
+    float: right;
+}
+
+
+.side-widget{
+    border:1px #ccc solid;
+    padding:10px 10px;
+    margin-bottom:20px;
+    margin-top:20px;
+}
+
+.side-widget ul{
+    padding:0;
+    margin:0;
+}
+
+.side-widget li{
+    list-style: none;
+    line-height:2.2em;
+    border-bottom:dotted 1px #ccc;
+}
+
+.side-widget a{
+    text-decoration: none;
+}
+
+.meta a
+{
+    color: #fff;
+}
+
+.clearfix 
+{
+    clear: both;
 }
